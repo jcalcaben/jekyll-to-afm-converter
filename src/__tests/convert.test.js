@@ -1,4 +1,4 @@
-const convert = require("../convert");
+import convert from "../convert";
 
 test("leaves normal markdown alone", () => {
   const content = "**bold** _italics_";
@@ -7,7 +7,10 @@ test("leaves normal markdown alone", () => {
     fileContent: content,
   });
 
-  expect(result).toMatchSnapshot();
+  expect(result).toMatchInlineSnapshot(`
+"**bold** _italics_
+"
+`);
 });
 
 test("fix open HTML tags", () => {
@@ -21,5 +24,12 @@ world`;
     fileContent: content,
   });
 
-  expect(result).toMatchSnapshot();
+  expect(result).toMatchInlineSnapshot(`
+"hello
+
+<br />  
+
+world
+"
+`);
 });

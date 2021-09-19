@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parses jekyll link tags 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "position": Object {
+            "end": Object {
+              "column": 19,
+              "line": 1,
+              "offset": 18,
+            },
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "text",
+          "value": "This is a [link][]",
+        },
+      ],
+      "position": Object {
+        "end": Object {
+          "column": 19,
+          "line": 1,
+          "offset": 18,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "[link]: {% link www.",
+        },
+        Object {
+          "type": "text",
+          "value": "yahoo",
+        },
+        Object {
+          "type": "text",
+          "value": ".com %}",
+        },
+      ],
+      "position": Object {
+        "end": Object {
+          "column": 34,
+          "line": 3,
+          "offset": 53,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 3,
+          "offset": 20,
+        },
+      },
+      "type": "paragraph",
+    },
+  ],
+  "position": Object {
+    "end": Object {
+      "column": 1,
+      "line": 4,
+      "offset": 54,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "type": "root",
+}
+`;

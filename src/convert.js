@@ -1,12 +1,19 @@
-const remark = require("remark");
+import remark from "remark";
+
+import consistent from "remark-preset-lint-consistent";
+import recommended from "remark-preset-lint-recommended";
+import md from "remark-preset-lint-markdown-style-guide";
+
+import fixer from "./remark-html-fixer";
 
 const convert = ({ config, fileContent }) => {
   let result = "";
 
   remark()
-    .use(require("remark-preset-lint-consistent"))
-    .use(require("remark-preset-lint-recommended"))
-    .use(require("remark-preset-lint-markdown-style-guide"))
+    .use(consistent)
+    .use(recommended)
+    .use(md)
+    .use(fixer)
     .use({
       settings: { emphasis: "_", strong: "*" },
       // ^ `remark-stringify` settings.
@@ -19,4 +26,4 @@ const convert = ({ config, fileContent }) => {
   return result;
 };
 
-module.exports = convert;
+export default convert;

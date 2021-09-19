@@ -1,7 +1,7 @@
-const unified = require("unified");
-const rehypeParse = require("rehype-parse");
-const toHtml = require("hast-util-to-html");
-const visit = require("unist-util-visit");
+import { unified } from "unified";
+import rehypeParse from "rehype-parse";
+import toHtml from "hast-util-to-html";
+import visit from "unist-util-visit";
 
 // Visits an HTML node and cleans up the HTML value
 const htmlVisitor = (node) => {
@@ -22,4 +22,4 @@ const fixer = () => {
   };
 };
 
-module.exports = fixer;
+export default fixer;

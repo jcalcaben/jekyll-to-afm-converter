@@ -1,8 +1,8 @@
-const { TestScheduler } = require("jest");
-var unified = require("unified");
-var markdown = require("remark-parse");
+import { unified } from "unified";
+import markdown from "remark-parse";
+import { toString } from "mdast-util-to-string";
 
-const fixer = require("../remark-html-fixer");
+import fixer from "../remark-html-fixer";
 
 test("closes open tags", () => {
   const tree = unified().use(markdown).parse(`**Hello** 
@@ -12,6 +12,11 @@ test("closes open tags", () => {
   unified()
     .use(fixer)
     .run(tree, (err, result) => {
-      expect(result).toMatchSnapshot();
+      const rendered = toString(result);
+      expect(rendered).toMatchInlineSnapshot(`
+        "Hello
+        <br />
+        world"
+      `);
     });
 });
